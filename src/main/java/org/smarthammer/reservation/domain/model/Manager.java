@@ -1,27 +1,23 @@
 package org.smarthammer.reservation.domain.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.envers.AuditOverride;
 import org.smarthammer.reservation.domain.SignUpForm;
 
 import java.util.Locale;
 
 @Getter
-@Builder
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Entity
 @AuditOverride(forClass = BaseEntity.class)
-public class Consumer extends BaseEntity{
-
+public class Manager extends BaseEntity{
     @Id
-    @Column(name = "consumer_id", nullable = false)
+    @Column(name = "manager_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long consumer_id;
+    private Long manager_id;
 
     @Column(unique = true)
     private String email;
@@ -29,13 +25,15 @@ public class Consumer extends BaseEntity{
     private String password;
     private String name;
     private String phone;
+    private Boolean partnership;
 
-    public static Consumer from(SignUpForm form) {
-        return Consumer.builder()
+    public static Manager from(SignUpForm form) {
+        return Manager.builder()
                 .email(form.getEmail().toLowerCase(Locale.ROOT))
                 .password(form.getPassword())
                 .name(form.getName())
                 .phone(form.getPhone())
+                .partnership(true)
                 .build();
     }
 }

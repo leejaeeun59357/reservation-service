@@ -1,0 +1,21 @@
+### 회원가입 (consumer)
+POST http://localhost:8080/signup/consumer
+Content-Type: application/json
+
+{
+  "email": "test1@naver.com",
+  "password": "1234",
+  "name": "consumer1",
+  "phone": "01000000000"
+}
+
+### 회원가입 (manager)
+POST http://localhost:8080/signup/manager
+Content-Type: application/json
+
+{
+  "email": "test2@naver.com",
+  "password": "1234",
+  "name": "manager1",
+  "phone": "01012345678"
+}

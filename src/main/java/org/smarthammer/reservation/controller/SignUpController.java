@@ -18,12 +18,16 @@ public class SignUpController {
 
 
     // 상점 이용자 회원가입하는 컨트롤러
-    @PostMapping("/customer")
+    @PostMapping("/consumer")
     public ResponseEntity<String> consumerSignUp(@RequestBody SignUpForm form) {
         return ResponseEntity.ok(signUpApplication.consumerSignUp(form));
     }
 
     // 상점 이용자 로그인하는 컨트롤러
+    @PostMapping("/manager")
+    public ResponseEntity<String> managerSignUp(@RequestBody SignUpForm form) {
+        return ResponseEntity.ok(signUpApplication.managerSignUp(form));
+    }
 
     // 상점 관리자 회원가입하는 컨트롤러
 
