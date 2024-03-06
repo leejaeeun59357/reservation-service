@@ -29,8 +29,4 @@ public class SignUpController {
         return ResponseEntity.ok(signUpApplication.managerSignUp(form));
     }
 
-    // 상점 관리자 회원가입하는 컨트롤러
-
-    // 상점 관리자 로그인하는 컨트롤러
-
 }

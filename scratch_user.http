@@ -19,3 +19,12 @@ Content-Type: application/json
   "name": "manager1",
   "phone": "01012345678"
 }
+
+### 로그인 (consumer)
+POST http://localhost:8080/signin/consumer
+Content-Type: application/json
+
+{
+  "email": "test1@naver.com",
+  "password": "1234"
+}

@@ -10,7 +10,7 @@ import java.util.Locale;
 
 @Service
 @RequiredArgsConstructor
-public class SignUpManagerService {
+public class ManagerService {
     private final ManagerRepository managerRepository;
 
     public Manager signUp(SignUpForm form) {
