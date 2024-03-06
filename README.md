@@ -33,5 +33,3 @@ USE : Spring Boot, MySQL
 - [ ] 매장 관리자 (점장)
 
 ## ERD
-
-![img_1.png](img_1.png)
