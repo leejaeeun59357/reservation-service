@@ -34,4 +34,4 @@ USE : Spring Boot, MySQL
 
 ## ERD
 
-![img.png](img.png)
+![image](https://github.com/leejaeeun59357/reservation-service/assets/149572895/f660c490-f7c0-4d64-9642-279e5a31aabe)
