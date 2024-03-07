@@ -26,4 +26,8 @@ public class SignInController {
     }
 
     // 상점 관리자 (manager) 로그인 컨트롤러
+    @PostMapping("/manager")
+    public ResponseEntity<String> signInManager(@RequestBody SignInForm form) {
+        return ResponseEntity.ok(signInApplication.managerLogin(form));
+    }
 }
