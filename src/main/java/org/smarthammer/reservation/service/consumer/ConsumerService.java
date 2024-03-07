@@ -14,10 +14,12 @@ import java.util.Optional;
 public class ConsumerService {
     private final ConsumerRepository consumerRepository;
 
+    // Consumer 회원가입 메서드
     public Consumer signUp(SignUpForm form) {
         return consumerRepository.save(Consumer.from(form));
     }
 
+    // 이미 존재하는 이메일인지 검사하는 메서드
     public boolean isEmailExist(String email) {
         return consumerRepository.findByEmail(email.toLowerCase(Locale.ROOT))
                 .isPresent();
