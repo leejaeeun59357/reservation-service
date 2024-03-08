@@ -1,8 +1,10 @@
-package org.smarthammer.reservation.controller;
+package org.smarthammer.reservation.controller.Login;
 
 import lombok.RequiredArgsConstructor;
 import org.smarthammer.reservation.application.SignUpApplication;
-import org.smarthammer.reservation.domain.SignUpForm;
+import org.smarthammer.reservation.domain.Form.user.SignUpForm;
+import org.smarthammer.reservation.domain.dto.ConsumerDto;
+import org.smarthammer.reservation.domain.dto.ManagerDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,16 +18,20 @@ public class SignUpController {
 
     private final SignUpApplication signUpApplication;
 
-
-    // 상점 이용자 회원가입하는 컨트롤러
+    /**
+     * 상점 이용자 회원가입하는 컨트롤러
+     *
+     * @param form
+     * @return ConsumerDto
+     */
     @PostMapping("/consumer")
-    public ResponseEntity<String> consumerSignUp(@RequestBody SignUpForm form) {
+    public ResponseEntity<ConsumerDto> consumerSignUp(@RequestBody SignUpForm form) {
         return ResponseEntity.ok(signUpApplication.consumerSignUp(form));
     }
 
-    // 상점 이용자 로그인하는 컨트롤러
+
     @PostMapping("/manager")
-    public ResponseEntity<String> managerSignUp(@RequestBody SignUpForm form) {
+    public ResponseEntity<ManagerDto> managerSignUp(@RequestBody SignUpForm form) {
         return ResponseEntity.ok(signUpApplication.managerSignUp(form));
     }
 
