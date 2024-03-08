@@ -1,4 +1,4 @@
-package org.smarthammer.reservation.domain;
+package org.smarthammer.reservation.domain.Form.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

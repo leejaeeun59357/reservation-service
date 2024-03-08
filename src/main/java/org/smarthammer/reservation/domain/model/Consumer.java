@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.envers.AuditOverride;
-import org.smarthammer.reservation.domain.SignUpForm;
+import org.smarthammer.reservation.domain.Form.user.SignUpForm;
 
 import java.util.Locale;
 
@@ -30,12 +30,4 @@ public class Consumer extends BaseEntity{
     private String name;
     private String phone;
 
-    public static Consumer from(SignUpForm form) {
-        return Consumer.builder()
-                .email(form.getEmail().toLowerCase(Locale.ROOT))
-                .password(form.getPassword())
-                .name(form.getName())
-                .phone(form.getPhone())
-                .build();
-    }
 }
