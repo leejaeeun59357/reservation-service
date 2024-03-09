@@ -65,14 +65,4 @@ public class StoreDto {
                 .build();
     }
 
-//    public static Store of(Long managerId, AddStoreForm form) {
-//        return Store.builder()
-//                .store_identifier(form.getStore_identifier())
-//                .name(form.getName())
-//                .description(form.getDescription())
-//                .total_star(0.0)
-//                .lat(form.getLat())
-//                .lng(form.getLng())
-//                .build();
-//    }
 }

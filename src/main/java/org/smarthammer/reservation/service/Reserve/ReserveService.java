@@ -5,8 +5,10 @@ import org.smarthammer.reservation.domain.Form.Reserve.AddReserveForm;
 import org.smarthammer.reservation.domain.dto.ReserveDto;
 import org.smarthammer.reservation.domain.model.Consumer;
 import org.smarthammer.reservation.domain.model.Reserve;
+import org.smarthammer.reservation.domain.model.Store;
 import org.smarthammer.reservation.domain.repository.ConsumerRepository;
 import org.smarthammer.reservation.domain.repository.ReserveRepository;
+import org.smarthammer.reservation.domain.repository.StoreRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,6 +19,7 @@ import java.util.Optional;
 public class ReserveService {
     private final ConsumerRepository consumerRepository;
     private final ReserveRepository reserveRepository;
+    private final StoreRepository storeRepository;
 
     /**
      * 주어진 email을 통해 일치하는 consumer 가 존재하는지 확인
@@ -30,6 +33,12 @@ public class ReserveService {
         return consumer;
     }
 
+    public Optional<Store> findStore(String name) {
+        Optional<Store> store = storeRepository.findByName(name);
+
+        return store;
+    }
+
     /**
      * form을 통해 생성된 Reserve 객체에 주어진 consumer Entity를 매핑하여 repository에 저장
      *
@@ -37,9 +46,10 @@ public class ReserveService {
      * @param consumer
      * @return
      */
-    public ReserveDto saveReserve(AddReserveForm form, Consumer consumer) {
+    public ReserveDto saveReserve(AddReserveForm form, Consumer consumer, Store store) {
         Reserve reserve = ReserveDto.formToEntity(form);
         reserve.setConsumer(consumer);
+        reserve.setStore(store);
 
         return ReserveDto.entityToDto(reserveRepository.save(reserve));
     }
