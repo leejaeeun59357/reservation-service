@@ -51,13 +51,22 @@ public class StoreService {
 
     /**
      * store 이름으로 store 객체 찾기
-     *
      * @param name
      * @return Store
      */
     public Optional<Store> findStore(String name) {
         Optional<Store> store = storeRepository.findByName(name);
-
         return store;
+    }
+
+    /**
+     * store 이름을 이용하여 삭제하기
+     * @param store
+     * @return "삭제가 완료되었습니다."
+     */
+    public String deleteStore(Store store) {
+        storeRepository.delete(store);
+
+        return "삭제가 완료되었습니다.";
     }
 }
