@@ -16,9 +16,8 @@ public enum ErrorCode {
 
     // Store 관련
     NOT_FOUND_MANAGER(HttpStatus.BAD_REQUEST, "해당 상점주인을 찾을 수 없습니다. 상점관리자 회원가입을 해주세요."),
-    NOT_FOUND_STORE(HttpStatus.BAD_REQUEST, "해당 상점을 찾을 수 없습니다. 먼저 상점을 등록시켜주세요."),
-    SAME_STORE_NAME_IS_EXIST(HttpStatus.BAD_REQUEST, "동일한 매장명이 등록되어 있습니다.")
-    ;
+    NOT_FOUND_STORE(HttpStatus.BAD_REQUEST, "해당 상점을 찾을 수 없습니다."),
+    SAME_STORE_NAME_IS_EXIST(HttpStatus.BAD_REQUEST, "동일한 매장명이 등록되어 있습니다.");
 
     private final HttpStatus httpStatus;
     private final String detail;
