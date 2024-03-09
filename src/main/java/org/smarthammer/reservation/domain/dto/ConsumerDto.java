@@ -42,7 +42,7 @@ public class ConsumerDto {
      */
     public static ConsumerDto entityToDto(Consumer consumer) {
         return ConsumerDto.builder()
-                .consumer_id(consumer.getConsumer_id())
+                .consumer_id(consumer.getId())
                 .email(consumer.getEmail())
                 .name(consumer.getName())
                 .phone(consumer.getPhone())
