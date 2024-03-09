@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.smarthammer.reservation.Exception.CustomException;
 import org.smarthammer.reservation.Exception.ErrorCode;
 import org.smarthammer.reservation.domain.Status.ArriveStatus;
+import org.smarthammer.reservation.domain.Status.UseStatus;
 import org.smarthammer.reservation.domain.dto.ReserveDto;
 import org.smarthammer.reservation.domain.model.Reserve;
 import org.smarthammer.reservation.service.Reserve.KioskService;
@@ -36,9 +37,11 @@ public class KioskApplication {
         Reserve reserve = kioskService.findReserveConsumer(name, reserveTime)
                 .orElseThrow(() -> new CustomException(ErrorCode.RESERVATION_HISTORY_NOT_EXIST));
 
-        // 예약시간 10분 전 인지 확인
+        // 예약시간 10분 전에 도착했는지 확인
+        // 도착했다면 useStatus 도 사용으로 변경
         if (kioskService.isBeforeTenMin(reserve)) {
             reserve.setArriveStatus(ArriveStatus.ARRIVED);
+            reserve.setUseStatus(UseStatus.USED);
         }
 
         ReserveDto reserveDto = ReserveDto.entityToDto(reserve);
