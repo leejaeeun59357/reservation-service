@@ -22,8 +22,12 @@ public class Store extends BaseEntity{
     private Long store_id;
 
     private String store_identifier;
+
+    @Setter
     private String name;
+    @Setter
     private String description;
+
     private Double total_star;
 
     // x좌표 (위도)

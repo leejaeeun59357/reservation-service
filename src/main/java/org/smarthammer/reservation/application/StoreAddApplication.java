@@ -7,7 +7,6 @@ import org.smarthammer.reservation.Exception.ErrorCode;
 import org.smarthammer.reservation.domain.Form.Store.AddStoreForm;
 import org.smarthammer.reservation.domain.dto.StoreDto;
 import org.smarthammer.reservation.domain.model.Manager;
-import org.smarthammer.reservation.domain.model.Store;
 import org.smarthammer.reservation.service.manager.StoreService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +30,7 @@ public class StoreAddApplication {
                 .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_MANAGER));
 
         if(storeService.isNameExist(form.getName())) {
-            throw new CustomException(ErrorCode.SAME_STORE_NAME);
+            throw new CustomException(ErrorCode.SAME_STORE_NAME_IS_EXIST);
         }
 
         return storeService.saveStore(form, manager);
