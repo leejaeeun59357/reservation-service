@@ -22,6 +22,7 @@ public enum ErrorCode {
     // Reserve 관련
     NOT_FOUND_CONSUMER(HttpStatus.BAD_REQUEST, "해당 이용자를 찾을 수 없습니다. Consumer 회원가입을 먼저 진행하세요."),
     WANT_TIME_IS_PAST(HttpStatus.BAD_REQUEST, "현재보다 과거인 시간은 예약할 수 없습니다."),
+    RESERVATION_HISTORY_NOT_EXIST(HttpStatus.BAD_REQUEST, "예약 내역이 존재하지 않습니다."),
     RESERVATION_IS_ALREADY_EXIST(HttpStatus.BAD_REQUEST, "다른 사람이 이미 예약한 시간입니다.");
 
     private final HttpStatus httpStatus;

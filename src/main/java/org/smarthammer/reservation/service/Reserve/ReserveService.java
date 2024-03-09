@@ -54,6 +54,14 @@ public class ReserveService {
         return reserveRepository.findByDT(wantToReserveTime).isPresent();
     }
 
+    /**
+     * 예약을 원하는 시간이 현재 시간보다 과거인지 검사하는 메서드
+     * 과거라면 true
+     * 아니라면 false 반환
+     *
+     * @param inputData
+     * @return boolean
+     */
     public boolean isWantedReserveTimePast(LocalDateTime inputData) {
         return inputData.isBefore(LocalDateTime.now());
     }

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.envers.AuditOverride;
 import org.hibernate.envers.Audited;
+import org.smarthammer.reservation.domain.Status.ArriveStatus;
+import org.smarthammer.reservation.domain.Status.UseStatus;
 
 import java.time.LocalDateTime;
 
@@ -26,8 +28,11 @@ public class Reserve extends BaseEntity{
 
     private LocalDateTime DT;
 
-    private String useStatus;
-    private String arriveStatus;
+    @Setter
+    private UseStatus useStatus;
+
+    @Setter
+    private ArriveStatus arriveStatus;
 
 //    아직 기능 구현 전 이므로 주석 처리
 //    private String allowStatus;

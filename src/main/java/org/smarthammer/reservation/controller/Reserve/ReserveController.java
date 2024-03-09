@@ -5,10 +5,7 @@ import org.smarthammer.reservation.application.ReserveAddApplication;
 import org.smarthammer.reservation.domain.Form.Reserve.AddReserveForm;
 import org.smarthammer.reservation.domain.dto.ReserveDto;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -17,8 +14,15 @@ public class ReserveController {
 
     private final ReserveAddApplication reserveAddApplication;
 
+    /**
+     * AddReserveForm 을 입력받아 예약을 저장
+     *
+     * @param form
+     * @return ReserveDto
+     */
     @PostMapping("/add")
     public ResponseEntity<ReserveDto> addReserve(@RequestBody AddReserveForm form) {
         return ResponseEntity.ok(reserveAddApplication.addReserve(form));
     }
+
 }

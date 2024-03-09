@@ -10,4 +10,6 @@ import java.util.Optional;
 @Repository
 public interface ReserveRepository extends JpaRepository<Reserve, Long> {
     Optional<Reserve> findByDT(LocalDateTime wantToReserveTime);
+
+    Optional<Reserve> findByNameAndDT(String name, LocalDateTime reserveTime);
 }

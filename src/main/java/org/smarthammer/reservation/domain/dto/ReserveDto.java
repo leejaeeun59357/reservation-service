@@ -1,12 +1,11 @@
 package org.smarthammer.reservation.domain.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.smarthammer.reservation.domain.Form.Reserve.AddReserveForm;
+import org.smarthammer.reservation.domain.Status.ArriveStatus;
+import org.smarthammer.reservation.domain.Status.UseStatus;
 import org.smarthammer.reservation.domain.model.Reserve;
-
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Getter
 @Builder
@@ -20,8 +19,8 @@ public class ReserveDto {
 
     private LocalDateTime reserveDateAndTime;
 
-    private String useStatus;
-    private String arriveStatus;
+    private UseStatus useStatus;
+    private ArriveStatus arriveStatus;
 
     private ConsumerDto consumerDto;
 
@@ -54,8 +53,8 @@ public class ReserveDto {
                 .DT(
                         form.getReserveDateAndTime()
                 )
-                .useStatus("NOT_USE")
-                .arriveStatus("NOT_ARRIVE")
+                .useStatus(UseStatus.NOT_USE)
+                .arriveStatus(ArriveStatus.NOT_ARRIVE)
                 .build();
     }
 }
