@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class AddReserveForm {
     private String consumerEmail;
+    private String storeName;
 
     private String name;
 

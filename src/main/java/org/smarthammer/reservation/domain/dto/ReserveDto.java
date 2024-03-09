@@ -2,6 +2,7 @@ package org.smarthammer.reservation.domain.dto;
 
 import lombok.*;
 import org.smarthammer.reservation.domain.Form.Reserve.AddReserveForm;
+import org.smarthammer.reservation.domain.Status.AllowStatus;
 import org.smarthammer.reservation.domain.Status.ArriveStatus;
 import org.smarthammer.reservation.domain.Status.UseStatus;
 import org.smarthammer.reservation.domain.model.Reserve;
@@ -19,10 +20,13 @@ public class ReserveDto {
 
     private LocalDateTime reserveDateAndTime;
 
+    private AllowStatus allowStatus;
     private UseStatus useStatus;
     private ArriveStatus arriveStatus;
 
     private ConsumerDto consumerDto;
+
+    private StoreDto storeDto;
 
 
     /**
@@ -36,8 +40,10 @@ public class ReserveDto {
                 .name(reserve.getName())
                 .reserveDateAndTime(reserve.getDT())
                 .useStatus(reserve.getUseStatus())
+                .allowStatus(reserve.getAllowStatus())
                 .arriveStatus(reserve.getArriveStatus())
                 .consumerDto(ConsumerDto.entityToDto(reserve.getConsumer()))
+                .storeDto(StoreDto.entityToDto(reserve.getStore()))
                 .build();
     }
 
@@ -53,6 +59,7 @@ public class ReserveDto {
                 .DT(
                         form.getReserveDateAndTime()
                 )
+                .allowStatus(AllowStatus.WAITING_FOR_APPROVAL)
                 .useStatus(UseStatus.NOT_USE)
                 .arriveStatus(ArriveStatus.NOT_ARRIVE)
                 .build();

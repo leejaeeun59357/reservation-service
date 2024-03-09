@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.envers.AuditOverride;
 import org.hibernate.envers.Audited;
+import org.smarthammer.reservation.domain.Status.AllowStatus;
 import org.smarthammer.reservation.domain.Status.ArriveStatus;
 import org.smarthammer.reservation.domain.Status.UseStatus;
 
@@ -29,6 +30,9 @@ public class Reserve extends BaseEntity{
     private LocalDateTime DT;
 
     @Setter
+    private AllowStatus allowStatus;
+
+    @Setter
     private UseStatus useStatus;
 
     @Setter
@@ -36,6 +40,12 @@ public class Reserve extends BaseEntity{
 
 //    아직 기능 구현 전 이므로 주석 처리
 //    private String allowStatus;
+
+    @OneToOne
+    @JoinColumn(name = "store_name")
+    @Audited(targetAuditMode = NOT_AUDITED)
+    @Setter
+    private Store store;
 
     @ManyToOne
     @JoinColumn(name = "consumer_email")
