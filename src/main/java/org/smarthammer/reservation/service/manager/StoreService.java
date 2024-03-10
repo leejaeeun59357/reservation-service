@@ -35,7 +35,7 @@ public class StoreService {
      * @return Manager
      */
     public Optional<Manager> findManager(AddStoreForm form) {
-        Optional<Manager> findManagerValue = managerRepository.findById(form.getManagerId());
+        Optional<Manager> findManagerValue = managerRepository.findByEmail(form.getManagerEmail());
 
         return findManagerValue;
     }

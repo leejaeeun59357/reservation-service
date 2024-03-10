@@ -46,4 +46,21 @@ public class ManagerOnlyController {
         );
     }
 
+
+    @PutMapping("/refuse")
+    public ResponseEntity<ReserveDto> refuseReservation(
+            @RequestParam(name = "managerEmail") String managerEmail,
+
+            @RequestParam(name = "consumerName") String consumerName,
+
+            @RequestParam(name = "reserveTime")
+            @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+            LocalDateTime reserveTime
+    ) {
+        return ResponseEntity.ok(managerOnlyApplication.refuseReservation(
+                managerEmail, consumerName, reserveTime)
+        );
+    }
+
+
 }
