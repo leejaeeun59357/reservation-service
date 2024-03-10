@@ -4,42 +4,29 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.envers.AuditOverride;
 import org.hibernate.envers.Audited;
+import org.hibernate.envers.RelationTargetAuditMode;
 
 import static org.hibernate.envers.RelationTargetAuditMode.NOT_AUDITED;
 
-@Entity
 @Getter
-@Builder
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Audited
 @AuditOverride(forClass = BaseEntity.class)
-public class Store extends BaseEntity{
-
+public class Review extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "store_id", nullable = false)
-    private Long store_id;
+    @Column(name = "review_id")
+    private Long id;
 
-    private String store_identifier;
+    private Long star;
+    private String feedback;
 
-    @Setter
-    private String name;
-    @Setter
-    private String description;
-
-    @Setter
-    private Long total_star;
-
-    // x좌표 (위도)
-    private String lat;
-
-    // y좌표 (경도)
-    private String lng;
-
-    @ManyToOne
-    @JoinColumn(name = "manager_id")
+    @OneToOne
+    @JoinColumn(name = "reserve_id")
     @Audited(targetAuditMode = NOT_AUDITED)
     @Setter
-    private Manager manager;
+    private Reserve reserve;
 }

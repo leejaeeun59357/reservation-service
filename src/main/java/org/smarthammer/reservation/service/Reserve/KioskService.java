@@ -52,5 +52,13 @@ public class KioskService {
         return reserve.getAllowStatus().equals(AllowStatus.REFUSED);
     }
 
+    /**
+     * 승인대기중인 예약이라면 true 반환
+     * @param reserve
+     * @return
+     */
+    public boolean isWaitingReservation(Reserve reserve) {
+        return reserve.getAllowStatus().equals(AllowStatus.WAITING_FOR_APPROVAL);
+    }
 
 }

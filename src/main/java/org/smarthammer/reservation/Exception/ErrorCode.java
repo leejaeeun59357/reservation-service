@@ -25,7 +25,13 @@ public enum ErrorCode {
     RESERVATION_HISTORY_NOT_EXIST(HttpStatus.BAD_REQUEST, "예약 내역이 존재하지 않습니다."),
     NOT_YOUR_STORE(HttpStatus.BAD_REQUEST, "본인의 가게만 승인할 수 있습니다."),
     CANNOT_USE_STORE(HttpStatus.BAD_REQUEST, "주인에 의해 거절된 예약입니다."),
-    RESERVATION_IS_ALREADY_EXIST(HttpStatus.BAD_REQUEST, "다른 사람이 이미 예약한 시간입니다.");
+    WAITING_MANAGER_ALLOW(HttpStatus.BAD_REQUEST, "주인에 의해 거절된 예약입니다."),
+    RESERVATION_IS_ALREADY_EXIST(HttpStatus.BAD_REQUEST, "다른 사람이 이미 예약한 시간입니다."),
+
+    // Review 관련
+    NOT_USE_CONSUMER(HttpStatus.BAD_REQUEST, "해당 상점을 이용한 사람만 리뷰를 작성할 수 있습니다."),
+    ALREADY_WRITE(HttpStatus.BAD_REQUEST, "이미 리뷰를 작성하였습니다."),
+    DIFFERENT_CONSUMER(HttpStatus.BAD_REQUEST, "예약한 사람과 작성하고자 하는 사람이 다릅니다.");
 
     private final HttpStatus httpStatus;
     private final String detail;

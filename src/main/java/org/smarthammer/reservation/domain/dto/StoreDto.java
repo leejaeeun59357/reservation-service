@@ -21,7 +21,7 @@ public class StoreDto {
     private String store_identifier;
     private String name;
     private String description;
-    private Double total_star;
+    private Long total_star;
 
     private String lat;
     private String lng;
@@ -61,7 +61,7 @@ public class StoreDto {
                 .description(form.getDescription())
                 .lat(form.getLat())
                 .lng(form.getLng())
-                .total_star(0.0)
+                .total_star(0L)
                 .build();
     }
 
