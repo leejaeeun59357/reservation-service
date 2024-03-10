@@ -8,21 +8,16 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddReviewForm {
+public class UpdateReviewForm {
 
     private String consumerEmail;
 
-    private String reserveName;
-
-    private String title;
-
-    // 형식 예시 -> "2010-11-25 12:30"
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
-    private LocalDateTime reserveTime;
+    private String reviewTitle;
 
     private Long star;
     private String feedback;

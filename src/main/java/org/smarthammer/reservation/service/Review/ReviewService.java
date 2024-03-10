@@ -23,11 +23,11 @@ public class ReviewService {
     /**
      * 예약한 이름과 예약한 시간을 통해 해당 예약이 존재하는지
      *
-     * @param form
+     * @param addReviewForm
      * @return Reserve Entity
      */
-    public Optional<Reserve> findReservation(AddReviewForm form) {
-        Optional<Reserve> reserve = reserveRepository.findByNameAndDT(form.getReserveName(),form.getReserveTime());
+    public Optional<Reserve> findReservation(AddReviewForm addReviewForm) {
+        Optional<Reserve> reserve = reserveRepository.findByNameAndDT(addReviewForm.getReserveName(),addReviewForm.getReserveTime());
 
         return reserve;
     }
@@ -47,14 +47,14 @@ public class ReviewService {
      * review에서 입력한 star를 store 의 total_star에 더해서 다시 저장하고
      * review를 저장
      *
-     * @param form
+     * @param addReviewForm
      * @param reserve
      * @return
      */
-    public ReviewDto saveReview(AddReviewForm form, Reserve reserve) {
+    public ReviewDto saveReview(AddReviewForm addReviewForm, Reserve reserve) {
         Long storeOriginalStar = reserve.getStore().getTotal_star();
 
-        Review review = ReviewDto.formToEntity(form);
+        Review review = ReviewDto.formToEntity(addReviewForm);
         review.setReserve(reserve);
         review.getReserve().getStore().setTotal_star(storeOriginalStar + review.getStar());
 
@@ -69,5 +69,14 @@ public class ReviewService {
      */
     public boolean isReviewExist(Reserve reserve) {
         return reviewRepository.findByReserve(reserve).isPresent();
+    }
+
+    /**
+     * 리뷰 제목을 이용하여 해당 리뷰가 존재하는지 확인
+     * @param title
+     * @return
+     */
+    public Optional<Review> findReview(String title) {
+        return reviewRepository.findByTitle(title);
     }
 }
