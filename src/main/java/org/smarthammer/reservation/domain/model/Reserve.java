@@ -38,9 +38,6 @@ public class Reserve extends BaseEntity{
     @Setter
     private ArriveStatus arriveStatus;
 
-//    아직 기능 구현 전 이므로 주석 처리
-//    private String allowStatus;
-
     @OneToOne
     @JoinColumn(name = "store_name")
     @Audited(targetAuditMode = NOT_AUDITED)

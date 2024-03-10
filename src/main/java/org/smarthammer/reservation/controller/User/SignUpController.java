@@ -1,4 +1,4 @@
-package org.smarthammer.reservation.controller.Login;
+package org.smarthammer.reservation.controller.User;
 
 import lombok.RequiredArgsConstructor;
 import org.smarthammer.reservation.application.SignUpApplication;
