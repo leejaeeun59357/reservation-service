@@ -24,6 +24,7 @@ public enum ErrorCode {
     WANT_TIME_IS_PAST(HttpStatus.BAD_REQUEST, "현재보다 과거인 시간은 예약할 수 없습니다."),
     RESERVATION_HISTORY_NOT_EXIST(HttpStatus.BAD_REQUEST, "예약 내역이 존재하지 않습니다."),
     NOT_YOUR_STORE(HttpStatus.BAD_REQUEST, "본인의 가게만 승인할 수 있습니다."),
+    CANNOT_USE_STORE(HttpStatus.BAD_REQUEST, "주인에 의해 거절된 예약입니다."),
     RESERVATION_IS_ALREADY_EXIST(HttpStatus.BAD_REQUEST, "다른 사람이 이미 예약한 시간입니다.");
 
     private final HttpStatus httpStatus;

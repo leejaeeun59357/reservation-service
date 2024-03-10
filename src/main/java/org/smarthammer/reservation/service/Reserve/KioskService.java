@@ -1,12 +1,10 @@
 package org.smarthammer.reservation.service.Reserve;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.smarthammer.reservation.domain.dto.ReserveDto;
+import org.smarthammer.reservation.domain.Status.AllowStatus;
 import org.smarthammer.reservation.domain.model.Reserve;
 import org.smarthammer.reservation.domain.repository.ReserveRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -42,6 +40,16 @@ public class KioskService {
         LocalDateTime mustArriveTime = reserve.getDT().minusMinutes(10);
 
         return LocalDateTime.now().isBefore(mustArriveTime);
+    }
+
+    /**
+     * 상점 관리자가 거절한 예약일 때 true 반환
+     *
+     * @param reserve
+     * @return boolean
+     */
+    public boolean isRefuseReservation(Reserve reserve) {
+        return reserve.getAllowStatus().equals(AllowStatus.REFUSED);
     }
 
 

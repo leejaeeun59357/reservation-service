@@ -37,6 +37,12 @@ public class KioskApplication {
         Reserve reserve = kioskService.findReserveConsumer(name, reserveTime)
                 .orElseThrow(() -> new CustomException(ErrorCode.RESERVATION_HISTORY_NOT_EXIST));
 
+        // 상점 주인이 승인한 예약인지 검사
+        if(kioskService.isRefuseReservation(reserve)) {
+            throw new CustomException(ErrorCode.CANNOT_USE_STORE);
+        }
+
+
         // 예약시간 10분 전에 도착했는지 확인
         // 도착했다면 useStatus 도 사용으로 변경
         if (kioskService.isBeforeTenMin(reserve)) {

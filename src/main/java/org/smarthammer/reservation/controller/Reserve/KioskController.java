@@ -21,6 +21,14 @@ public class KioskController {
 
     private final KioskApplication kioskApplication;
 
+    /**
+     * 이름과 예약시간으로 해당 예약을 찾아 도착인증
+     * 도착하게 되면 이용상태도 이용으로 변경
+     *
+     * @param consumerName
+     * @param reserveTime
+     * @return ReserveDto
+     */
     @PutMapping("/arrived")
     public ResponseEntity<ReserveDto> consumerArrived(
             @RequestParam(name = "consumerName") String consumerName,

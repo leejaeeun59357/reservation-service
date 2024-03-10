@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class AddStoreForm {
 
-    private Long managerId;
+    private String managerEmail;
 
     // 식당인지 점포인지 구분하기 위한 변수
     private String store_identifier;
