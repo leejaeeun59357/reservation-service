@@ -34,4 +34,5 @@ USE : Spring Boot, MySQL
 - [x] 매장 관리자 (점장)
 
 ## ERD
-![image](https://github.com/leejaeeun59357/reservation-service/assets/149572895/ef223627-4c4d-4b0d-86b3-77f6a729f890)
+![image](https://github.com/leejaeeun59357/reservation-service/assets/149572895/d2eb270b-5c95-411b-ae78-e673d62897c9)
+
