@@ -30,8 +30,8 @@ USE : Spring Boot, MySQL
 - [x] 리뷰 작성자만 수정 가능
 
 ### 삭제 기능
-- [ ] 리뷰 작성자
-- [ ] 매장 관리자 (점장)
+- [x] 리뷰 작성자
+- [x] 매장 관리자 (점장)
 
 ## ERD
 ![image](https://github.com/leejaeeun59357/reservation-service/assets/149572895/ef223627-4c4d-4b0d-86b3-77f6a729f890)
