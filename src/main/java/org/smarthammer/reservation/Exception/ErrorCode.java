@@ -30,7 +30,9 @@ public enum ErrorCode {
 
     // Review 관련
     NOT_USE_CONSUMER(HttpStatus.BAD_REQUEST, "해당 상점을 이용한 사람만 리뷰를 작성할 수 있습니다."),
+    DO_NOT_HAVE_RIGHT(HttpStatus.BAD_REQUEST, "해당 권한이 없습니다."),
     ALREADY_WRITE(HttpStatus.BAD_REQUEST, "이미 리뷰를 작성하였습니다."),
+    NOT_EXIST_REVIEW(HttpStatus.BAD_REQUEST, "존재하지 않는 리뷰입니다."),
     DIFFERENT_CONSUMER(HttpStatus.BAD_REQUEST, "예약한 사람과 작성하고자 하는 사람이 다릅니다.");
 
     private final HttpStatus httpStatus;

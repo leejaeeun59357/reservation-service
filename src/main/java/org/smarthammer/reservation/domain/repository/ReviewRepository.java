@@ -11,4 +11,6 @@ import java.util.Optional;
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     Optional<Review> findByReserve(Reserve reserve);
+
+    Optional<Review> findByTitle(String title);
 }

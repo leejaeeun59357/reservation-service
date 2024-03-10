@@ -30,8 +30,6 @@ public class ReviewAddApplication {
     @Transactional
     public ReviewDto addReview(AddReviewForm form) {
 
-        log.info(String.valueOf(form.getReserveTime()));
-
         // 해당 예약 정보가 존재하는지 검사
         Reserve reserve = reviewService.findReservation(form)
                 .orElseThrow(() -> new CustomException(ErrorCode.RESERVATION_HISTORY_NOT_EXIST));

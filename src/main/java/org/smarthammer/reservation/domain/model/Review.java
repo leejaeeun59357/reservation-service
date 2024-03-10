@@ -21,7 +21,13 @@ public class Review extends BaseEntity{
     @Column(name = "review_id")
     private Long id;
 
+    @Column(unique = true)
+    private String title;
+
+    @Setter
     private Long star;
+
+    @Setter
     private String feedback;
 
     @OneToOne
