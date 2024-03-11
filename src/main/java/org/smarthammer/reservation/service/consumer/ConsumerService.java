@@ -37,16 +37,4 @@ public class ConsumerService {
                 .isPresent();
     }
 
-//    /**
-//     * 로그인 시 이메일과 패스워드가 일치하는지 검사
-//     *
-//     * @param email
-//     * @param password
-//     * @return
-//     */
-//    public Optional<Consumer> findByEmailAndPassword(String email, String password) {
-//        return consumerRepository.findByEmail(email).stream()
-//                .filter(consumer -> consumer.getEmail().equals(email) && consumer.getPassword().equals(password))
-//                .findFirst();
-//    }
 }

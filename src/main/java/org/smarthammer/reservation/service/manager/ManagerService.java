@@ -62,13 +62,4 @@ public class ManagerService {
         return reservation;
     }
 
-
-//    // 로그인 시 이메일과 패스워드가 일치하고
-//    // 파트너십이 체결되어있는지 검사
-//    public Optional<Manager> findByEmailAndPassword(String email, String password) {
-//        return managerRepository.findByEmail(email).stream()
-//                .filter(manager -> manager.getEmail().equals(email)
-//                && manager.getPassword().equals(password)
-//                && manager.getPartnership()).findFirst();
-//    }
 }

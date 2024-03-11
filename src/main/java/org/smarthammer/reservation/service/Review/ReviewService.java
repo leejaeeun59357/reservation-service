@@ -49,7 +49,7 @@ public class ReviewService {
      *
      * @param addReviewForm
      * @param reserve
-     * @return
+     * @return ReviewDto
      */
     public ReviewDto saveReview(AddReviewForm addReviewForm, Reserve reserve) {
         Long storeOriginalStar = reserve.getStore().getTotal_star();
@@ -65,7 +65,7 @@ public class ReviewService {
     /**
      * 해당 예약이 이미 리뷰가 작성되어있는지 검사
      * @param reserve
-     * @return
+     * @return boolean
      */
     public boolean isReviewExist(Reserve reserve) {
         return reviewRepository.findByReserve(reserve).isPresent();
@@ -74,7 +74,7 @@ public class ReviewService {
     /**
      * 리뷰 제목을 이용하여 해당 리뷰가 존재하는지 확인
      * @param title
-     * @return
+     * @return Review Entity
      */
     public Optional<Review> findReview(String title) {
         return reviewRepository.findByTitle(title);

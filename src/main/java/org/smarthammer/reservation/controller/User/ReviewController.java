@@ -48,16 +48,16 @@ public class ReviewController {
      * 해당 리뷰를 찾아서
      * 상점관리자 또는 리뷰 작성자만 삭제가능하도록 함
      *
-     * @param email
-     * @param title
+     * @param ConsumerEmail
+     * @param ReviewTitle
      * @return
      */
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteReview(
-            @RequestParam(name = "email") String email,
-            @RequestParam(name = "title") String title
+            @RequestParam(name = "ConsumerEmail") String ConsumerEmail,
+            @RequestParam(name = "ReviewTitle") String ReviewTitle
     ) {
-        return ResponseEntity.ok(reviewDeleteApplication.deleteReview(email, title));
+        return ResponseEntity.ok(reviewDeleteApplication.deleteReview(ConsumerEmail, ReviewTitle));
     }
 
 }

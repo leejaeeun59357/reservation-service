@@ -19,7 +19,7 @@ public class SignUpController {
     private final SignUpApplication signUpApplication;
 
     /**
-     * 상점 이용자 회원가입하는 컨트롤러
+     * 상점 이용자 회원가입
      *
      * @param form
      * @return ConsumerDto
@@ -30,6 +30,11 @@ public class SignUpController {
     }
 
 
+    /**
+     * 상점 이용자 회원가입
+     * @param form
+     * @return ManagerDto
+     */
     @PostMapping("/manager")
     public ResponseEntity<ManagerDto> managerSignUp(@RequestBody SignUpForm form) {
         return ResponseEntity.ok(signUpApplication.managerSignUp(form));
