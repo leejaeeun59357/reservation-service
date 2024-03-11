@@ -24,11 +24,27 @@ public class StoreListDto {
      * @return
      */
     public static StoreListDto entityToListDto(
-            Store store, Double distanceVal
+            Store store, double distanceVal
     ) {
         return StoreListDto.builder()
                 .store_id(store.getStore_id())
                 .distance(distanceVal)
+                .store_identifier(store.getStore_identifier())
+                .name(store.getName())
+                .description(store.getDescription())
+                .total_star(store.getTotal_star() )
+                .build();
+    }
+
+
+    /**
+     * 상점 엔티티를 StoreListDto 객체로 변환
+     * @param store Store Entity
+     * @return StoreListDto
+     */
+    public static StoreListDto entityToDto(Store store) {
+        return StoreListDto.builder()
+                .store_id(store.getStore_id())
                 .store_identifier(store.getStore_identifier())
                 .name(store.getName())
                 .description(store.getDescription())
