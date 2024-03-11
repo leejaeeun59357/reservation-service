@@ -1,14 +1,12 @@
 package org.smarthammer.reservation.controller.User;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.Response;
 import org.smarthammer.reservation.application.StoreListApplication;
 import org.smarthammer.reservation.domain.Form.user.StoreListLookupForm;
 import org.smarthammer.reservation.domain.dto.StoreListDto;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,10 +17,15 @@ public class StoreListController {
 
     private final StoreListApplication storeListApplication;
 
-    @GetMapping
+    @GetMapping("/all/store")
     public ResponseEntity<List<StoreListDto>> listStore(
             @RequestBody StoreListLookupForm storeListLookupForm
     ) {
         return ResponseEntity.ok(storeListApplication.findStoreList(storeListLookupForm));
+    }
+
+    @GetMapping("/store/selected")
+    public ResponseEntity<StoreListDto> StoreDetail(@RequestParam(name = "storeName") String storeName) {
+        return ResponseEntity.ok(storeListApplication.storeDetails(storeName));
     }
 }

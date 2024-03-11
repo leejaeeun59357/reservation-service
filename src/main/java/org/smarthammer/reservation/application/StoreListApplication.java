@@ -2,6 +2,8 @@ package org.smarthammer.reservation.application;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.smarthammer.reservation.Exception.CustomException;
+import org.smarthammer.reservation.Exception.ErrorCode;
 import org.smarthammer.reservation.domain.Form.user.StoreListLookupForm;
 import org.smarthammer.reservation.domain.dto.StoreListDto;
 import org.smarthammer.reservation.domain.model.Store;
@@ -12,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,6 +22,22 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class StoreListApplication {
     private final StoreService storeService;
+
+
+    /**
+     * 상점 이름을 이용하여 상점 검색
+     * @param storeName 상점 이름
+     * @return StoreListDto
+     */
+    public StoreListDto storeDetails(String storeName) {
+
+        // 상점 이름으로 조회했을 때 존재하지 않는다면 에러
+        Store store = storeService.findStore(storeName)
+                .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_STORE));
+
+        return StoreListDto.entityToDto(store);
+    }
+
 
     /**
      * 현재 위치를 입력받아
