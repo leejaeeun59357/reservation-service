@@ -10,6 +10,8 @@ import org.smarthammer.reservation.domain.dto.StoreDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/store")
@@ -44,12 +46,12 @@ public class StoreController {
 
     /**
      * 삭제할 store 의 이름으로 삭제하기
-     * @param name
+     * @param storeName
      * @return "삭제가 완료되었습니다."
      */
     @DeleteMapping("/delete")
-    public ResponseEntity<String> deleteStore(@RequestParam(value = "name") String name) {
-        String s = storeDeleteApplication.deleteStore(name);
+    public ResponseEntity<String> deleteStore(@RequestParam(value = "storeName") String storeName) {
+        String s = storeDeleteApplication.deleteStore(storeName);
 
         return ResponseEntity.ok(s);
     }

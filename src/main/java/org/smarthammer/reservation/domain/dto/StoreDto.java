@@ -14,9 +14,6 @@ import org.smarthammer.reservation.domain.repository.StoreRepository;
 @AllArgsConstructor
 public class StoreDto {
 
-    private static ManagerRepository managerRepository;
-    private static StoreRepository storeRepository;
-
     private Long store_id;
     private String store_identifier;
     private String name;
