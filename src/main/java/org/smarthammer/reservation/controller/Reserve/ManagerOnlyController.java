@@ -47,6 +47,15 @@ public class ManagerOnlyController {
     }
 
 
+    /**
+     * 상점 주인의 이메일로 상점 주인임을 확인하고
+     * 예약자 이름과 예약 시간을 통해 해당 예약 거절
+     *
+     * @param managerEmail
+     * @param consumerName
+     * @param reserveTime
+     * @return
+     */
     @PutMapping("/refuse")
     public ResponseEntity<ReserveDto> refuseReservation(
             @RequestParam(name = "managerEmail") String managerEmail,

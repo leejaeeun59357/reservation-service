@@ -22,6 +22,12 @@ public class ReviewDeleteService {
         return reviewRepository.findByTitle(title);
     }
 
+
+    /**
+     * Review를 repository에서 삭제하는 메서드
+     * @param review
+     * @return "삭제를 완료하였습니다."
+     */
     public String deleteReview(Review review) {
         reviewRepository.delete(review);
 

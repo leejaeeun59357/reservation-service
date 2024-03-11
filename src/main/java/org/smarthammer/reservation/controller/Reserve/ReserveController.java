@@ -17,12 +17,12 @@ public class ReserveController {
     /**
      * AddReserveForm 을 입력받아 예약을 저장
      *
-     * @param form
+     * @param addReserveForm
      * @return ReserveDto
      */
     @PostMapping("/add")
-    public ResponseEntity<ReserveDto> addReserve(@RequestBody AddReserveForm form) {
-        return ResponseEntity.ok(reserveAddApplication.addReserve(form));
+    public ResponseEntity<ReserveDto> addReserve(@RequestBody AddReserveForm addReserveForm) {
+        return ResponseEntity.ok(reserveAddApplication.addReserve(addReserveForm));
     }
 
 }
