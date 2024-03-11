@@ -9,6 +9,7 @@ import org.smarthammer.reservation.domain.repository.ManagerRepository;
 import org.smarthammer.reservation.domain.repository.StoreRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -68,5 +69,14 @@ public class StoreService {
         storeRepository.delete(store);
 
         return "삭제가 완료되었습니다.";
+    }
+
+
+    /**
+     * 모든 Store 의 정보 구하기
+     * @return List<Store>
+     */
+    public List<Store> allStoreList() {
+        return storeRepository.findAll();
     }
 }
