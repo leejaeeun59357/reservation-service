@@ -41,5 +41,5 @@ public class Store extends BaseEntity{
     @JoinColumn(name = "manager_id")
     @Audited(targetAuditMode = NOT_AUDITED)
     @Setter
-    private Manager manager;
+    private User manager;
 }

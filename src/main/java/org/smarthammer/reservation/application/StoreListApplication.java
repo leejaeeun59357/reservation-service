@@ -7,14 +7,13 @@ import org.smarthammer.reservation.Exception.ErrorCode;
 import org.smarthammer.reservation.domain.Form.user.StoreListLookupForm;
 import org.smarthammer.reservation.domain.dto.StoreListDto;
 import org.smarthammer.reservation.domain.model.Store;
-import org.smarthammer.reservation.service.manager.StoreService;
+import org.smarthammer.reservation.service.StoreService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service

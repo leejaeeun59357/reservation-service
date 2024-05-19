@@ -2,10 +2,7 @@ package org.smarthammer.reservation.domain.dto;
 
 import lombok.*;
 import org.smarthammer.reservation.domain.Form.Store.AddStoreForm;
-import org.smarthammer.reservation.domain.model.Manager;
 import org.smarthammer.reservation.domain.model.Store;
-import org.smarthammer.reservation.domain.repository.ManagerRepository;
-import org.smarthammer.reservation.domain.repository.StoreRepository;
 
 @Getter
 @Builder
@@ -23,7 +20,7 @@ public class StoreDto {
     private String lat;
     private String lng;
 
-    private ManagerDto managerDto;
+    private UserDto managerDto;
 
     /**
      * Store Entity -> StoreDto
@@ -40,7 +37,7 @@ public class StoreDto {
                 .total_star(store.getTotal_star())
                 .lat(store.getLat())
                 .lng(store.getLng())
-                .managerDto(ManagerDto.entityToDto(store.getManager()))
+                .managerDto(UserDto.entityToDto(store.getManager()))
                 .build();
     }
 
