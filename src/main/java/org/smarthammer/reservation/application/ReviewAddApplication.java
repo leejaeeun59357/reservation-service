@@ -7,8 +7,8 @@ import org.smarthammer.reservation.Exception.ErrorCode;
 import org.smarthammer.reservation.domain.Form.user.AddReviewForm;
 import org.smarthammer.reservation.domain.Status.UseStatus;
 import org.smarthammer.reservation.domain.dto.ReviewDto;
-import org.smarthammer.reservation.domain.model.Consumer;
 import org.smarthammer.reservation.domain.model.Reserve;
+import org.smarthammer.reservation.domain.model.User;
 import org.smarthammer.reservation.service.Review.ReviewService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,7 +35,7 @@ public class ReviewAddApplication {
                 .orElseThrow(() -> new CustomException(ErrorCode.RESERVATION_HISTORY_NOT_EXIST));
 
         // 리뷰를 작성하고자 하는 Consumer이 존재하는지 검사
-        Consumer consumer = reviewService.isConsumerExist(form.getConsumerEmail())
+        User consumer = reviewService.isConsumerExist(form.getConsumerEmail())
                 .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_USER));
 
         // 예약한 consumer과 리뷰를 작성하려는 consumer이 동일한지 검사

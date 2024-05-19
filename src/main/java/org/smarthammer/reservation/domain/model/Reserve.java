@@ -48,5 +48,5 @@ public class Reserve extends BaseEntity{
     @JoinColumn(name = "consumer_email")
     @Audited(targetAuditMode = NOT_AUDITED)
     @Setter
-    private Consumer consumer;
+    private User consumer;
 }

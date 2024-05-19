@@ -11,7 +11,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.envers.AuditOverride;
+import org.smarthammer.reservation.domain.Form.user.SignUpForm;
 
 @Getter
 @Builder
@@ -35,5 +37,17 @@ public class User extends BaseEntity{
   private String password;
   private String name;
   private String phone;
+
+  @Setter
   private boolean partnership;
+
+  public static User formToEntity(SignUpForm form, Type type) {
+    return User.builder()
+        .email(form.getEmail())
+        .password(form.getPassword())
+        .name(form.getName())
+        .type(type)
+        .phone(form.getPhone())
+        .build();
+  }
 }

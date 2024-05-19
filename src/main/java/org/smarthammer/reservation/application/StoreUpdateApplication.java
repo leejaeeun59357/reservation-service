@@ -7,7 +7,7 @@ import org.smarthammer.reservation.Exception.ErrorCode;
 import org.smarthammer.reservation.domain.Form.Store.UpdateStoreForm;
 import org.smarthammer.reservation.domain.dto.StoreDto;
 import org.smarthammer.reservation.domain.model.Store;
-import org.smarthammer.reservation.service.manager.StoreService;
+import org.smarthammer.reservation.service.StoreService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

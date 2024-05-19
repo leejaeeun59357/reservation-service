@@ -3,12 +3,12 @@ package org.smarthammer.reservation.service.Review;
 import lombok.RequiredArgsConstructor;
 import org.smarthammer.reservation.domain.Form.user.AddReviewForm;
 import org.smarthammer.reservation.domain.dto.ReviewDto;
-import org.smarthammer.reservation.domain.model.Consumer;
 import org.smarthammer.reservation.domain.model.Reserve;
 import org.smarthammer.reservation.domain.model.Review;
-import org.smarthammer.reservation.domain.repository.ConsumerRepository;
+import org.smarthammer.reservation.domain.model.User;
 import org.smarthammer.reservation.domain.repository.ReserveRepository;
 import org.smarthammer.reservation.domain.repository.ReviewRepository;
+import org.smarthammer.reservation.domain.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ReviewService {
     private final ReserveRepository reserveRepository;
-    private final ConsumerRepository consumerRepository;
+    private final UserRepository userRepository;
     private final ReviewRepository reviewRepository;
 
     /**
@@ -37,8 +37,8 @@ public class ReviewService {
      * @param consumerEmail
      * @return Consumer Entity
      */
-    public Optional<Consumer> isConsumerExist(String consumerEmail) {
-        Optional<Consumer> consumer = consumerRepository.findByEmail(consumerEmail);
+    public Optional<User> isConsumerExist(String consumerEmail) {
+        Optional<User> consumer = userRepository.findByEmail(consumerEmail);
         return consumer;
     }
 

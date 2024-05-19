@@ -1,12 +1,12 @@
-package org.smarthammer.reservation.service.manager;
+package org.smarthammer.reservation.service;
 
 import lombok.RequiredArgsConstructor;
 import org.smarthammer.reservation.domain.Form.Store.AddStoreForm;
 import org.smarthammer.reservation.domain.dto.StoreDto;
-import org.smarthammer.reservation.domain.model.Manager;
 import org.smarthammer.reservation.domain.model.Store;
-import org.smarthammer.reservation.domain.repository.ManagerRepository;
+import org.smarthammer.reservation.domain.model.User;
 import org.smarthammer.reservation.domain.repository.StoreRepository;
+import org.smarthammer.reservation.domain.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,14 +16,14 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class StoreService {
     private final StoreRepository storeRepository;
-    private final ManagerRepository managerRepository;
+    private final UserRepository userRepository;
 
     /**
      * repository에 store에 대한 데이터 저장
      * @param form
      * @return StoreDto
      */
-    public StoreDto saveStore(AddStoreForm form, Manager manager) {
+    public StoreDto saveStore(AddStoreForm form, User manager) {
         Store store = StoreDto.formToEntity(form);
         store.setManager(manager);
 
@@ -35,8 +35,8 @@ public class StoreService {
      * @param form
      * @return Manager
      */
-    public Optional<Manager> findManager(AddStoreForm form) {
-        Optional<Manager> findManagerValue = managerRepository.findByEmail(form.getManagerEmail());
+    public Optional<User> findManager(AddStoreForm form) {
+        Optional<User> findManagerValue = userRepository.findByEmail(form.getManagerEmail());
 
         return findManagerValue;
     }

@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.smarthammer.reservation.Exception.CustomException;
 import org.smarthammer.reservation.Exception.ErrorCode;
 import org.smarthammer.reservation.domain.model.Store;
-import org.smarthammer.reservation.service.manager.StoreService;
+import org.smarthammer.reservation.service.StoreService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

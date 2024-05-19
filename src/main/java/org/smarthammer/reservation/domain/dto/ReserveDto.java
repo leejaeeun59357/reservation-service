@@ -24,7 +24,7 @@ public class ReserveDto {
     private UseStatus useStatus;
     private ArriveStatus arriveStatus;
 
-    private ConsumerDto consumerDto;
+    private UserDto userDto;
 
     private StoreDto storeDto;
 
@@ -42,7 +42,7 @@ public class ReserveDto {
                 .useStatus(reserve.getUseStatus())
                 .allowStatus(reserve.getAllowStatus())
                 .arriveStatus(reserve.getArriveStatus())
-                .consumerDto(ConsumerDto.entityToDto(reserve.getConsumer()))
+                .userDto(UserDto.entityToDto(reserve.getConsumer()))
                 .storeDto(StoreDto.entityToDto(reserve.getStore()))
                 .build();
     }
